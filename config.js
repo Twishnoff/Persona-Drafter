@@ -4,5 +4,5 @@
 // after you deploy the Worker — see README.md.
 window.PERSONA_DRAFTER_CONFIG = {
   API_BASE_URL: "https://persona-drafter-api.tyler-wishnoff.workers.dev",
-  TURNSTILE_SITE_KEY: "<paste the Turnstile site key here — the public one, not the secret>",
+  TURNSTILE_SITE_KEY: "0x4AAAAAAEhj_UpeZip62a9o",
 };
