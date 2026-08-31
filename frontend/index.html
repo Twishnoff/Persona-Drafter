@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Persona Drafter</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-head">
+    <div class="wrap">
+      <span class="eyebrow">Internal tool</span>
+      <h1>Persona Drafter</h1>
+      <p class="dek">First-draft buyer persona from a job title. Not a substitute for talking to real customers — a head start on the research before you do.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="submit-box" aria-label="Target persona inputs">
+      <form id="persona-form" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="jobTitle">Job Title</label>
+          <input type="text" id="jobTitle" name="jobTitle" placeholder="e.g. Growth Marketing Manager" required>
+        </div>
+
+        <div class="field">
+          <label for="companySize">Company Size</label>
+          <select id="companySize" name="companySize" required>
+            <option value="" disabled selected>Select Company Size</option>
+            <option value="Enterprise ($1B+ ARR)">Enterprise ($1B+ ARR)</option>
+            <option value="Midmarket ($50M - $999M ARR)">Midmarket ($50M - $999M ARR)</option>
+            <option value="Small Business (< $50M ARR)">Small Business (&lt; $50M ARR)</option>
+            <option value="No Preference">No Preference</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="industry">Industry <span class="optional">(optional)</span></label>
+          <input type="text" id="industry" name="industry" placeholder="e.g. Fintech">
+        </div>
+
+        <div class="field turnstile-field">
+          <div id="turnstile-widget"></div>
+        </div>
+
+        <div class="field submit-row">
+          <button type="submit" id="generate-btn" disabled>Generate Persona</button>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+        </div>
+      </form>
+    </section>
+
+    <section class="results-grid" id="results-grid" aria-label="Persona research results">
+
+      <article class="box" id="box-overview" data-box="overview">
+        <h2>Overview</h2>
+        <div class="box-body placeholder">No Data Collected</div>
+      </article>
+
+      <article class="box" id="box-profiles" data-box="profiles">
+        <h2>Sample Profiles</h2>
+        <div class="box-body placeholder">No Data Collected</div>
+      </article>
+
+      <article class="box" id="box-gather" data-box="gather">
+        <h2>Where They Gather</h2>
+        <div class="box-body placeholder">No Data Collected</div>
+      </article>
+
+      <article class="box" id="box-org" data-box="org">
+        <h2>Organizational Structure</h2>
+        <div class="box-body placeholder">No Data Collected</div>
+      </article>
+
+      <article class="box" id="box-work" data-box="work">
+        <h2>Their Immediate Work Priorities</h2>
+        <div class="box-body placeholder">No Data Collected</div>
+      </article>
+
+      <article class="box" id="box-development" data-box="development">
+        <h2>Their Development Priorities</h2>
+        <div class="box-body placeholder">No Data Collected</div>
+      </article>
+
+    </section>
+
+    <div class="pdf-row">
+      <button id="pdf-btn" disabled>Create Persona PDF</button>
+      <p id="run-status" class="run-status" aria-live="polite"></p>
+    </div>
+
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">Persona Drafter — internal tool. Access restricted to approved accounts.</div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad" defer></script>
+  <script src="app.js"></script>
+  <script src="pdf.js"></script>
+</body>
+</html>
